@@ -1,0 +1,1298 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "_SHDW",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_burnAdmin",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "allocPoint",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "contract IBEP20",
+						"name": "lpToken",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isRegular",
+						"type": "bool"
+					}
+				],
+				"name": "AddPool",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "EmergencyWithdraw",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "burnRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "regularFarmRate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "specialFarmRate",
+						"type": "uint256"
+					}
+				],
+				"name": "EventUpdateShdwRate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Init",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "allocPoint",
+						"type": "uint256"
+					}
+				],
+				"name": "SetPool",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "boostContract",
+						"type": "address"
+					}
+				],
+				"name": "UpdateBoostContract",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldMultiplier",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newMultiplier",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateBoostMultiplier",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "UpdateBurnAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastRewardBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lpSupply",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "accShdwPerShare",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdatePool",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isValid",
+						"type": "bool"
+					}
+				],
+				"name": "UpdateWhiteList",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ACC_SHDW_PRECISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "BOOST_PRECISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MASTERCHEF_SHDW_PER_BLOCK",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_BOOST_PRECISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "SHDW",
+				"outputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "SHDW_RATE_TOTAL_PRECISION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_allocPoint",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract IBEP20",
+						"name": "_lpToken",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isRegular",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "_withUpdate",
+						"type": "bool"
+					}
+				],
+				"name": "add",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "boostContract",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "burnAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_withUpdate",
+						"type": "bool"
+					}
+				],
+				"name": "burnShdw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					}
+				],
+				"name": "emergencyWithdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					}
+				],
+				"name": "getBoostMultiplier",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastBurnedBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "lpToken",
+				"outputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "massUpdatePools",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "pendingShdw",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "poolInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "accShdwPerShare",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastRewardBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "allocPoint",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalBoostedShare",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isRegular",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "poolLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "pools",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_allocPoint",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_withUpdate",
+						"type": "bool"
+					}
+				],
+				"name": "set",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_isRegular",
+						"type": "bool"
+					}
+				],
+				"name": "shdwPerBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shdwPerBlockToBurn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shdwRateToBurn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shdwRateToRegularFarm",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shdwRateToSpecialFarm",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalRegularAllocPoint",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSpecialAllocPoint",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newBoostContract",
+						"type": "address"
+					}
+				],
+				"name": "updateBoostContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newMultiplier",
+						"type": "uint256"
+					}
+				],
+				"name": "updateBoostMultiplier",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "updateBurnAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					}
+				],
+				"name": "updatePool",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "accShdwPerShare",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lastRewardBlock",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "allocPoint",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalBoostedShare",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isRegular",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ShadowChefV2.PoolInfo",
+						"name": "pool",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_burnRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_regularFarmRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_specialFarmRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_withUpdate",
+						"type": "bool"
+					}
+				],
+				"name": "updateShdwRate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isValid",
+						"type": "bool"
+					}
+				],
+				"name": "updateWhiteList",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewardDebt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "boostMultiplier",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "whiteList",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"add(uint256,address,bool,bool)": {
+					"params": {
+						"_allocPoint": "Number of allocation points for the new pool.",
+						"_isRegular": "Whether the pool is regular or special. LP farms are always \"regular\". \"Special\" pools are",
+						"_lpToken": "Address of the LP BEP-20 token.",
+						"_withUpdate": "Whether call \"massUpdatePools\" operation. only for SHDW distributions within ShadowSwap products."
+					}
+				},
+				"burnShdw(bool)": {
+					"params": {
+						"_withUpdate": "Whether call \"massUpdatePools\" operation."
+					}
+				},
+				"constructor": {
+					"params": {
+						"_SHDW": "The SHDW token contract address.",
+						"_burnAdmin": "The address of burn admin."
+					}
+				},
+				"deposit(uint256,uint256)": {
+					"params": {
+						"_amount": "Amount of LP tokens to deposit.",
+						"_pid": "The id of the pool. See `poolInfo`."
+					}
+				},
+				"emergencyWithdraw(uint256)": {
+					"params": {
+						"_pid": "The id of the pool. See `poolInfo`."
+					}
+				},
+				"getBoostMultiplier(address,uint256)": {
+					"params": {
+						"_pid": "The pool id.",
+						"_user": "The user address."
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"pendingShdw(uint256,address)": {
+					"params": {
+						"_pid": "The id of the pool. See `poolInfo`.",
+						"_user": "Address of the user."
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"set(uint256,uint256,bool)": {
+					"params": {
+						"_allocPoint": "New number of allocation points for the pool.",
+						"_pid": "The id of the pool. See `poolInfo`.",
+						"_withUpdate": "Whether call \"massUpdatePools\" operation."
+					}
+				},
+				"shdwPerBlock(bool)": {
+					"params": {
+						"_isRegular": "If the pool belongs to regular or special."
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"updateBoostContract(address)": {
+					"params": {
+						"_newBoostContract": "The new address for handling all the share boosts."
+					}
+				},
+				"updateBoostMultiplier(address,uint256,uint256)": {
+					"params": {
+						"_newMultiplier": "New boost multiplier.",
+						"_pid": "The pool id for the boost factor updates.",
+						"_user": "The user address for boost factor updates."
+					}
+				},
+				"updateBurnAdmin(address)": {
+					"params": {
+						"_newAdmin": "The new burn admin address."
+					}
+				},
+				"updatePool(uint256)": {
+					"params": {
+						"_pid": "The id of the pool. See `poolInfo`."
+					},
+					"returns": {
+						"pool": "Returns the pool that was updated."
+					}
+				},
+				"updateShdwRate(uint256,uint256,uint256,bool)": {
+					"params": {
+						"_burnRate": "The % of SHDW to burn each block.",
+						"_regularFarmRate": "The % of SHDW to regular pools each block.",
+						"_specialFarmRate": "The % of SHDW to special pools each block.",
+						"_withUpdate": "Whether call \"massUpdatePools\" operation."
+					}
+				},
+				"updateWhiteList(address,bool)": {
+					"params": {
+						"_isValid": "The flag for valid or invalid.",
+						"_user": "The address to be updated."
+					}
+				},
+				"withdraw(uint256,uint256)": {
+					"params": {
+						"_amount": "Amount of LP tokens to withdraw.",
+						"_pid": "The id of the pool. See `poolInfo`."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"BOOST_PRECISION()": {
+					"notice": "Basic boost factor, none boosted user's boost factor"
+				},
+				"MASTERCHEF_SHDW_PER_BLOCK()": {
+					"notice": "40 SHDWs per block in MCV1"
+				},
+				"MAX_BOOST_PRECISION()": {
+					"notice": "Hard limit for maxmium boost factor, it must greater than BOOST_PRECISION"
+				},
+				"SHDW()": {
+					"notice": "Address of SHDW contract."
+				},
+				"SHDW_RATE_TOTAL_PRECISION()": {
+					"notice": "total SHDW rate = toBurn + toRegular + toSpecial"
+				},
+				"add(uint256,address,bool,bool)": {
+					"notice": "Add a new pool. Can only be called by the owner. DO NOT add the same LP token more than once. Rewards will be messed up if you do."
+				},
+				"boostContract()": {
+					"notice": "The contract handles the share boosts."
+				},
+				"burnAdmin()": {
+					"notice": "The only address can withdraw all the burn SHDW."
+				},
+				"burnShdw(bool)": {
+					"notice": "Send SHDW pending for burn to `burnAdmin`."
+				},
+				"deposit(uint256,uint256)": {
+					"notice": "Deposit LP tokens to pool."
+				},
+				"emergencyWithdraw(uint256)": {
+					"notice": "Withdraw without caring about the rewards. EMERGENCY ONLY."
+				},
+				"getBoostMultiplier(address,uint256)": {
+					"notice": "Get user boost multiplier for specific pool id."
+				},
+				"lpToken(uint256)": {
+					"notice": "Address of the LP token for each MCV2 pool."
+				},
+				"massUpdatePools()": {
+					"notice": "Update SHDW reward for all the active pools. Be careful of gas spending!"
+				},
+				"pendingShdw(uint256,address)": {
+					"notice": "View function for checking pending SHDW rewards."
+				},
+				"poolInfo(uint256)": {
+					"notice": "Info of each MCV2 pool."
+				},
+				"poolLength()": {
+					"notice": "Returns the number of MCV2 pools."
+				},
+				"set(uint256,uint256,bool)": {
+					"notice": "Update the given pool's SHDW allocation point. Can only be called by the owner."
+				},
+				"shdwPerBlock(bool)": {
+					"notice": "Calculates and returns the `amount` of SHDW per block."
+				},
+				"shdwPerBlockToBurn()": {
+					"notice": "Calculates and returns the `amount` of SHDW per block to burn."
+				},
+				"shdwRateToBurn()": {
+					"notice": "The last block number of SHDW burn action being executed.SHDW distribute % for burn"
+				},
+				"shdwRateToRegularFarm()": {
+					"notice": "SHDW distribute % for regular farm pool"
+				},
+				"shdwRateToSpecialFarm()": {
+					"notice": "SHDW distribute % for special pools"
+				},
+				"totalRegularAllocPoint()": {
+					"notice": "Total regular allocation points. Must be the sum of all regular pools' allocation points."
+				},
+				"totalSpecialAllocPoint()": {
+					"notice": "Total special allocation points. Must be the sum of all special pools' allocation points."
+				},
+				"updateBoostContract(address)": {
+					"notice": "Update boost contract address and max boost factor."
+				},
+				"updateBoostMultiplier(address,uint256,uint256)": {
+					"notice": "Update user boost factor."
+				},
+				"updateBurnAdmin(address)": {
+					"notice": "Update burn admin address."
+				},
+				"updatePool(uint256)": {
+					"notice": "Update reward variables for the given pool."
+				},
+				"updateShdwRate(uint256,uint256,uint256,bool)": {
+					"notice": "Update the % of SHDW distributions for burn, regular pools and special pools."
+				},
+				"updateWhiteList(address,bool)": {
+					"notice": "Update whitelisted addresses for special pools."
+				},
+				"userInfo(uint256,address)": {
+					"notice": "Info of each pool user."
+				},
+				"whiteList(address)": {
+					"notice": "The whitelist of addresses allowed to deposit in special pools."
+				},
+				"withdraw(uint256,uint256)": {
+					"notice": "Withdraw LP tokens from pool."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ShadowChef.sol": "ShadowChefV2"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 99999
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/GSN/Context.sol": {
+			"keccak256": "0xac3640fab06aaa5fc0af5b6548a8636bc14b78229779b692bae195c699221797",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48fcd027633a742c81fcfa81dfa2a0a22cee177971fb32e6f8cb5197fdf951d1",
+				"dweb:/ipfs/QmeGieEzcGUKHppbDZ3PySE4yi8gTzcRQ7ayobMobbmwJ3"
+			]
+		},
+		"contracts/SafeBEP20.sol": {
+			"keccak256": "0x6ba8fde3a8428b9970384f82f685191d0fe20eba7888323aebf4160e723a9874",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a2d8ad03ea9da4af418de1da1a857a6ff030b70fbb302f510f14e1185f7a35b9",
+				"dweb:/ipfs/Qmdo6P18HCGyneMzgSnykq6b5L5QRL9r4N1xYiEz6U2t9k"
+			]
+		},
+		"contracts/ShadowChef.sol": {
+			"keccak256": "0x8a7b91a4ce604f89e4ef24e2eb4291a4d878e1b2e3f1e4d14d01d566d5d126b4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a03ab338434cc70da32f5c5304045c09ba994324c35a94a8010eb45385a7dc41",
+				"dweb:/ipfs/QmbBesK38QgKHngfjND6AodGmzbaR7X7W8apRbCpHC2ovm"
+			]
+		},
+		"contracts/access/Ownable.sol": {
+			"keccak256": "0x64dde1f6b994f96be14d03844017bf898095a18299bb05a4afa233c645420d5a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://95c81213bd34cbef1f46b2c82734dec5474a0a0cc400b4ca6ef03022f7852695",
+				"dweb:/ipfs/QmRVesYxR2JfhQfrseURtfG2QametnWtQZSv96gxiDP3ws"
+			]
+		},
+		"contracts/interfaces/IBEP20.sol": {
+			"keccak256": "0x0fc9133e1f7e76899bbfd283f50eab584517d7718627a4105e57b2573b4424ee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a25ad611946438cc409d0164af42bfd325a9e0d4741cca6aebfc4655287940c",
+				"dweb:/ipfs/QmWcjwcbWDcmBDuwzyFWaqg9B5NKy7T1YuPAG6JMGxoqyC"
+			]
+		},
+		"contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa5b31f4257f2a2f1e71d4c5864ce467ca7342206857cb643b9f1acaa126c3cc3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://45a26a4d6d7375e3004ac308ee67392153fe3ca0448dd8e87d000f1614d0eb33",
+				"dweb:/ipfs/QmRXyDPpPZkLjaTmhNPuDFys4Md8sFU4d6JztjitUWTWKC"
+			]
+		},
+		"contracts/utils/Address.sol": {
+			"keccak256": "0x6fdd4f22c4b1bad566163a8372598724aa1f4e7ac2e91996f5195d896f866347",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://05f30f1b8664b6ed2027ba8b89d3b4d18fcf31cc516b77f0862f3c10e209e080",
+				"dweb:/ipfs/QmaWnyw6CVaiXohboJVrixXyCb4KiAP7LiMmcGRczX79zB"
+			]
+		},
+		"contracts/utils/SafeMath.sol": {
+			"keccak256": "0xaa5974a17de3ff0a3b5132f2d65f957c60450c398b0e6bf252cd8c80c43a4724",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6f8f9836ee7504a2010136587fdfb373937cb5ae822f44f7c5110be984c552c8",
+				"dweb:/ipfs/QmPsVWWUEiPZ9gmFRaR491L1pYWuGrGKRaBt86j8YcDdgQ"
+			]
+		}
+	},
+	"version": 1
+}

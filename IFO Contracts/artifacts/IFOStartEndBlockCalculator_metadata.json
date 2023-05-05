@@ -1,0 +1,309 @@
+{
+	"compiler": {
+		"version": "0.8.5+commit.a4f2e591"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_ifoDeployer",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "startBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "endBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "StartEndBlockCalculated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "durationInBlocks",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateStartEndBlock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_lpToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_offeringToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "durationInBlocks",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_adminAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_iShdwAddress",
+						"type": "address"
+					}
+				],
+				"name": "createIFOWithCalculatedBlocks",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ifoDeployer",
+				"outputs": [
+					{
+						"internalType": "contract IFODeployerV5",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/time.sol": "IFOStartEndBlockCalculator"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0x195b2cbb885d06ea30ed9eed359fc0e48d4bef32b542f54f7924f2135655e641",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d644d10d87b16514e05eb98b10140a71df8bf9d4eadf9de81df33d4769fb90e3",
+				"dweb:/ipfs/QmZLRJbcbHSkkQXF16o1TLQXhNbAKpztbnwM3RSBWq52dR"
+			]
+		},
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x190dd6f8d592b7e4e930feb7f4313aeb8e1c4ad3154c27ce1cf6a512fc30d8cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ce8dfb62d0c4fa260d6eec8f1cd47f5f2a044e11bde5b31d18072fa6e7d9010",
+				"dweb:/ipfs/QmTyFztU3tLEcEDnqqiaW4UJetqsU77LXc6pjc9oTXCK5u"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+			"keccak256": "0xf41ca991f30855bf80ffd11e9347856a517b977f0a6c2d52e6421a99b7840329",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b2717fd2bdac99daa960a6de500754ea1b932093c946388c381da48658234b95",
+				"dweb:/ipfs/QmP6QVMn6UeA3ByahyJbYQr5M6coHKBKsf3ySZSfbyA8R7"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xe3e24ceb68b8b87f6c1c74b23531302ba174694bdc9d01e32241769eb9f4b688",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://744c232b440482b7db675828a9044108758ecea3401188bf368d627b19f62620",
+				"dweb:/ipfs/QmV59W4QyniE6rG4KiqEtvgK7Tv2F8jg2frvuEzmpJGmjE"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xf96f969e24029d43d0df89e59d365f277021dac62b48e1c1e3ebe0acdd7f1ca1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ec772b45a624be516f1c81970caa8a2e144301e9d0921cbc1a2789fef39a1269",
+				"dweb:/ipfs/QmNyjwxCrGhQMyzLD93oUobJXVe9ceJvRvfXwbEtuxPiEj"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0x0f633a0223d9a1dcccfcf38a64c9de0874dfcbfac0c6941ccf074d63a2ce0e1e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://864a40efcffdf408044c332a5aa38ec5618ed7b4eecb8f65faf45671bd6cdc65",
+				"dweb:/ipfs/QmQJquTMtc6fgm5JQzGdsGpA2fqBe3MHWEdt2qzaLySMdN"
+			]
+		},
+		"contracts/IFODeployerV5.sol": {
+			"keccak256": "0xa99486a38bcc11aedb090ce120db7db12d2cbb8a1302c365903d1de9f9fa0d88",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a55372a0056644fff5852f2d2ba6f6a3b35a58649f54bd5cd7a48377d2049d8",
+				"dweb:/ipfs/QmX4tj8FFbCJL4NBkmkH9A6Rccitj9qq5QGP9iAL5kZkXw"
+			]
+		},
+		"contracts/IFOInitializableV5.sol": {
+			"keccak256": "0x694548053d74c98a2940a0d4319bdc4129f6415469966fee1a1ab27024854e3b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://55988c630c3e58864f565204e67aa052ed940781d7690337ebc6e58941c5b01f",
+				"dweb:/ipfs/QmNpdFhXJ8nSju5N9czGJABHuLZUSgb1MxnbKYLHNZZsza"
+			]
+		},
+		"contracts/IShdw.sol": {
+			"keccak256": "0x8193139c4d7ea60d848e44cb43ee15912e27ea94b72ca23d2208c260724650d2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://52d37aae748de2903ddf9b7f7c41df153b097d63401064e0bac758d9b1bbeceb",
+				"dweb:/ipfs/QmPipu1eeSYJzyio8T1GFWobhZfRL6bgH9ZUiVwChXdVGq"
+			]
+		},
+		"contracts/interfaces/IIFOV5.sol": {
+			"keccak256": "0x01240eae15e1e202bfeebd731dcd31bfb565320de28a65c51208cee5b620465e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://15b0c8e96f6ea802796801abf92f7439126549484bea94148621a605eda63c09",
+				"dweb:/ipfs/QmfQKvu2aXW8CFzn9P67TPWTK9hq83ncKyUX74ewsJAYq1"
+			]
+		},
+		"contracts/interfaces/IShdwPool.sol": {
+			"keccak256": "0x168618f48dae1c7c4b4c011d79d087c41acb8db25351f34a9f4fd3816a8b6d24",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a4e81d2cac370555133aa2f7ee40bbdf35b5aa4da69a05ba99f9d53068558219",
+				"dweb:/ipfs/QmPqnnefBCvkkeTF9SJAJdJs1zNVybUmwCTEG6SSoR6LxT"
+			]
+		},
+		"contracts/time.sol": {
+			"keccak256": "0x547cc0d45463ec04b46012bbafab2e9ac52778edb44b226f8df7268809d95812",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ce366e7824ee7e0d1a067d651e0f938db86cd92796c56f16aee73bc745890470",
+				"dweb:/ipfs/QmUx1Eo7B3LiVckWQ7nbAVFYYtd5DnpMDzrZk4QtHP58bv"
+			]
+		},
+		"contracts/utils/WhiteList.sol": {
+			"keccak256": "0x0ecb33d5d02bcd2dc5a42e23ca46dc9637cfb5c550f6c12c611fcc7ef50ec617",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://83ea30dd73f16cf015bb0cf9e211a176426c6aca584b90ac767806721ffe9fce",
+				"dweb:/ipfs/QmeutDL3btmgW9FT1UCh8kdaLcXDHUGcpbPabKrZfVzoUN"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate, library-like contracts.",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SmartchefFactory.sol": "Context"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 99999
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SmartchefFactory.sol": {
+			"keccak256": "0xf96c7c3c870f67dc46c8528682c103f4caaf4077c9f4e641a71f79866dc3f257",
+			"urls": [
+				"bzz-raw://ebd6bd29caf8ca7e2d9f0cfd16ef320aa42e9523790ef70ed3ef4a5e5374c9f5",
+				"dweb:/ipfs/QmQNF1HZKWQhhQCiXPzcJZxFU3P8gW3A2z6AZdwPCqb3M3"
+			]
+		}
+	},
+	"version": 1
+}

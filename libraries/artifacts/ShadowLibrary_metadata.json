@@ -1,0 +1,58 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/libraries/ShadowLibrary.sol": "ShadowLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IShadowFactory.sol": {
+			"keccak256": "0x02a73d46344786bba5e650ecca42c3405aff01291258cd4ee5b5e41df8f53d0f",
+			"urls": [
+				"bzz-raw://ca5975ad480e76b9ad4114e5e6ae2242ee106b6f7c9d56eb79e2be431bab458e",
+				"dweb:/ipfs/QmaVKJ3aiBxgysAxb9pdCAASGciYzRMan6yakM8EdSKSTa"
+			]
+		},
+		"contracts/interfaces/IShadowPair.sol": {
+			"keccak256": "0x85364624b022631ed1ea9588324143080741fbfa5d2c3f179395ede3bf31e7b4",
+			"urls": [
+				"bzz-raw://12f745f16951bd27478ae991e95357ddbc24b6c80e4ca9c440b4e9e8a010f5ec",
+				"dweb:/ipfs/QmfXEPXJoYw617im92ex69hbJQTKqgUU3tpprsMkhHUPqU"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0x61a1f9dd88ff2855a44f2a11bbb52a9445bb4be373d540aa0e7e9d78db1119be",
+			"urls": [
+				"bzz-raw://846ada0f1a38db93892744a3b09b2b249e02deac2f93eff534dee34817f5e00a",
+				"dweb:/ipfs/QmcJytYD52JnJHE7LsTDRni6HzG23skAdpe9MK5DaJNcCn"
+			]
+		},
+		"contracts/libraries/ShadowLibrary.sol": {
+			"keccak256": "0x10cc790a3aee05a6a2837c54e99e31bbe5b40159668aae8303c2e0e130ec3461",
+			"urls": [
+				"bzz-raw://6d78bdd1925b32a6cd13878e1d4e268eb688d15bb09a6f570d8c2bc3c6851872",
+				"dweb:/ipfs/QmX4NcZ7kE1s4CGurzbXdxSXGEefmt3GPABAZBsK1Bx2et"
+			]
+		}
+	},
+	"version": 1
+}
